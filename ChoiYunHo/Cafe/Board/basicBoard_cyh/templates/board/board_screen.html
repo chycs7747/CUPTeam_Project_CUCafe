@@ -1,0 +1,18 @@
+<h1>{{board.name}} 게시판입니다.</h1>
+<br>
+<fieldset>
+    {% for post in board.post_set.all %}
+        <li><a href="{% url 'board:post_index' post_name=post.name %}">{{ post.name }}</a></li>
+    {% endfor %}
+</fieldset>
+
+<form action="{% url 'board:post_create' board_name=board.name %}" method="post">
+    {% csrf_token %}
+    
+    <button type="submit">포스트 등록</button>
+</form>
+
+<form action="{% url 'board:board_delete' board_name=board.name %}" method="post">
+    {% csrf_token %}
+    <button type="submit">게시판 삭제</button>
+</form>

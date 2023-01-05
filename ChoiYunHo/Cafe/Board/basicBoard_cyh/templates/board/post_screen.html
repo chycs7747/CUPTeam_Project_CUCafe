@@ -1,0 +1,35 @@
+<h3>{{post.board.name}}게시판</h3>
+<h1>제목: {{post.name}}</h1>
+<br>
+<fieldset>
+    {{post.content}}
+</fieldset>
+
+<br>
+{% for comment in post.comment_set.all %}
+    <div>
+        {{comment.user_name}}:
+        {{comment.content}}
+    </div>
+    <br>
+{% endfor %}
+
+<form action="{% url 'board:post_comment_submit' post_name=post.name %}" method="post">
+    {% csrf_token %}
+    username: <input type="text" name="comment_user_name"><br>
+    context: <textarea name="comment_content"></textarea><br>
+    <button type="submit">댓글달기</button>
+</form>
+
+
+
+<form action="{% url 'board:post_modify' post_name=post.name %}" method="post">
+    {% csrf_token %}
+    <br><br>
+    <button type="submit">수정하기</button>
+</form>
+
+<form action="{% url 'board:post_delete' post_name=post.name %}" method="post">
+    {% csrf_token %}
+    <button type="submit"> 삭제하기</button>
+</form>
