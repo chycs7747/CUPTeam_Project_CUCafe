@@ -1,6 +1,6 @@
 # CUPTeam_Project_Cafe
 
-#### CUP Team (Swing Team중 3팀)  
+#### __CUP Team (Swing Team중 3팀)__  
   
 [팀 정보]  
 CUP Team 창설일: 2022/ 12/ 22  
