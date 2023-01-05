@@ -1,6 +1,6 @@
 # CUPTeam_Project_Cafe
 
-####CUP Team (Swing Team중 3팀) 
+#### CUP Team (Swing Team중 3팀) 
 
 CUP Team 창설일: 2022/ 12/ 22
 멤버: 최윤호, 엄현호, 박수현
