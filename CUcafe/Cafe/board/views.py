@@ -21,6 +21,7 @@ def main_index(request):
     board_list = Board.objects.all()
     post_list = Post.objects.all()
     context = {'board_list': board_list, 'post_list': post_list}
+    print('hello')
     return render(request, 'board/main_screen.html', context)
 
 def board_index(request, board_name):
