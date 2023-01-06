@@ -1,0 +1,11 @@
+<h1>게시판 생성하기</h1>
+<br>
+<form action="{% url 'board:board_create_submit' %}" method="post">
+    {% csrf_token %}
+    <fieldset>
+        <legend>개시판 이름 작성</legend>
+        <input name="create_content">  <br><br>
+        <button type="submit">생성완료</button>
+    </fieldset>
+
+</form>
