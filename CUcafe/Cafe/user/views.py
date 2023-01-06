@@ -14,7 +14,7 @@ def signup(request):
         if signupForm.is_valid():
             user = signupForm.save(commit=False)
             user.save()
-        return redirect(request, '/board/list')
+        return redirect(request, '/board')
 
 def logout(request):
     auth_logout(request)
