@@ -2,13 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>회원가입</title>
 </head>
 <body>
-<form method="post">
+<h2>회원가입</h2>
+<form action="{% url 'user:signup' %}" method="post">
   {% csrf_token %}
-  {{ signupForm }}
-  <button>회원가입</button>
+  <fieldset>
+    아이디<br>
+    <input type="text" name="username" placeholder="id를 입력하세요">
+    <form action="중복검사url" method="post">
+      <button type="submit">중복검사</button>
+    </form>
+    <br>
+    비밀번호<br>
+    <input type="text" name="password" placeholder="pw를 입력하세요">
+    <br>비밀번호 확인<br>
+    <input type="text" name="password" placeholder="pw를 다시 입력하세요">
+  </fieldset>
+  <button type="submit">회원가입</button>
 </form>
 </body>
 </html>
