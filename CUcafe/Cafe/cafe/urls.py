@@ -6,6 +6,10 @@ from user import urls
 app_name = 'cafe'
 
 urlpatterns = [
+    #user app
     path('user/', include('user.urls')),
-    path('board/', include('board.urls')),
+    path('user/mv/board/', views.mv_user_board, name='mv_user_board'),
+
+    #board app
+    path('board/', include('board.urls', namespace='board')),
 ]

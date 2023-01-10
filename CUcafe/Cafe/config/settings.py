@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'cafe.apps.CafeConfig',
     'board.apps.BoardConfig',
     'user.apps.UserConfig',
     'django.contrib.admin',

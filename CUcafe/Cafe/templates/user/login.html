@@ -2,13 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>로그인</title>
 </head>
 <body>
-<form method="post">
+<h2>로그인</h2>
+<form action="{% url 'user:로그인' %}" method="post">
   {% csrf_token %}
-  {{ loginForm }}
-   <button>로그인</button>
+  <fieldset>
+    아이디<br>
+    <input type="text" name="username" placeholder="id를 입력하세요">
+    <br>
+    비밀번호<br>
+    <input type="text" name="password" placeholder="pw를 입력하세요">
+
+  </fieldset>
+  <button type="submit">로그인</button>
 </form>
 </body>
 </html>
