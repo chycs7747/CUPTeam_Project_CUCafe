@@ -1,0 +1,22 @@
+<fieldset>
+    <h1>메인화면</h1>
+</fieldset>
+<br>
+{% if board_list %}
+    {% for board in board_list %}
+        <h2><p><a href="{% url 'board:board_index' board_name=board.name %}">{{board.name}}</a><br></p></h2>
+        <fieldset>
+            {% for post in board.post_set.all %}
+                <li><a href="{%url 'board:post_index' post_name=post.name %}">&nbsp;{{post.name}}</a></li>
+            {% endfor %}
+        </fieldset>
+    {% endfor %}
+{% else %}
+    <p>질문이 없습니다.</p>
+{% endif %}
+
+<form action="{% url 'board:board_create' %}" method="post">
+    {% csrf_token %}
+    <br><br>
+    <button type="submit">게시판 생성</button>
+</form>
