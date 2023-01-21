@@ -18,13 +18,13 @@ class Service:
         redirect_uri = settings.GOOGLE_REDIRECT_URI
         google_token_api_uri = settings.GOOGLE_TOKEN_API
         grant_type = 'authorization_code' #다른 것도 존재하지만 이걸 쓰는게 보편적임
-        expires_in=4000
         #token_response의 값 중 refresh_token값은 원래 null이지만, code를 받는 부분의 scope에 access_type=offline&prompt=consent를 추가시켜, 로그인 시마다 refresh_token을 '새로'발급 받도록 하였다. 참고로 매 로그인 시마다 refresh_token을 갱신할지 안할지는 개발마다 다를 수 있다.
         #'expires_in': 3599 : 3599초 만료시간
         #id_token: 서비스 또는 애플리케이션에 Cloud Run, Cloud Functions, IAP(Identity-Aware Proxy)와 같은 "Google 서비스가 사용되는 경우" Google이 ID 토큰을 검증.
         #추가로 id_token은 ID 토큰은 절대로 API로 보내서는 안 된다. (id_token은 jwt양식)
         #Bearer 토큰은 토큰을 소유한 사람에게 액세스 권한을 부여하는 일반적인 토큰 클래스입니다. 예) 액세스 토큰, ID 토큰
-        token_response = requests.post(f'{google_token_api_uri}?client_id={client_id}&client_secret={client_secret_password}&code={authorization_code}&grant_type={grant_type}&expires_in={expires_in}&redirect_uri={redirect_uri}')
+        #expires_in: 만료시간 - Google Access tokens are created by Googles authorization server, Googles access tokens expire after one hour. You do not have access to change this.
+        token_response = requests.post(f'{google_token_api_uri}?client_id={client_id}&client_secret={client_secret_password}&code={authorization_code}&grant_type={grant_type}&redirect_uri={redirect_uri}')
         print("token response",token_response.json()) #json형식으로 token_response 확인. 이 정보는, 어떤 authorization code를 넣는지(scope가 다른)에 따라 반환하는 양이 다를 수 있다.
         #토큰이 유효하지 않으면 오류 발생(ex) access token's expires 만료)
         if not token_response.ok:
