@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>로그인</title>
+</head>
+<body>
+<h2>로그인</h2>
+<form action="{% url 'user:로그인' %}" method="post">
+  {% csrf_token %}
+  <fieldset>
+    아이디<br>
+    <input type="text" name="username" placeholder="id를 입력하세요">
+    <br>
+    비밀번호<br>
+    <input type="text" name="password" placeholder="pw를 입력하세요">
+    <br>
+    이메일<br>
+    <input type="text" name="email" placeholder="email을 입력하세요">
+
+  </fieldset>
+  <button type="submit">로그인</button>
+</form>
+</body>
+</html>

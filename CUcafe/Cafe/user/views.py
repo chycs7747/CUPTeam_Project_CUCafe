@@ -2,11 +2,13 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login as auth_login
 from django.contrib.auth import logout as auth_logout
+from cafe import urls
 
 # Create your views here.
 def signup(request):
     if request.method=="GET":
         signupForm =UserCreationForm(request.GET)
+        print(signupForm)
         context = {'signupForm':signupForm}
         return render(request, 'user/signup.html', context)
     elif request.method=="POST":
@@ -14,7 +16,11 @@ def signup(request):
         if signupForm.is_valid():
             user = signupForm.save(commit=False)
             user.save()
+<<<<<<< HEAD
         return redirect(request, '/board')
+=======
+        return redirect('user:login')
+>>>>>>> f83b92a6dc9e1fcad069ccf99c2f7106c9b42c5d
 
 def logout(request):
     auth_logout(request)
@@ -30,4 +36,4 @@ def login(request):
         if loginForm.is_valid():
            auth_login(request, loginForm.get_user())
 
-        return redirect(request, '/board/list')
+        return redirect(request, 'board:main_index')

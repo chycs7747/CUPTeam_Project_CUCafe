@@ -1,0 +1,14 @@
+<h1>포스트 생성하기</h1>
+<br>
+<form action="{% url 'board:post_create_submit' board_name=board.name %}" method="post">
+    {% csrf_token %}
+    <fieldset>
+        <legend>포스트 이름 작성</legend>
+        <input name="create_name">  
+        <legend>내용 작성</legend>
+        <textarea name="create_content"></textarea>
+        <br><br>
+        <button type="submit">생성완료</button>
+    </fieldset>
+
+</form>
