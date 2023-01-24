@@ -128,16 +128,15 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-OAUTH2_PROVIDER = {
-    'ACCESS_TOKEN_EXPIRE_SECONDS': 60,
-    'OAUTH_SINGLE_ACCESS_TOKEN': True,
-    'OAUTH_DELETE_EXPIRED': True
-}
-
+#구글 OAUTH 세팅
 GOOGLE_CLIENT_ID = '507113890270-ur54u0rit5sff4g4amj5pru6nhdisd68.apps.googleusercontent.com'
 GOOGLE_CLIENT_SECRET_PASSWORD = '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'
 GOOGLE_TOKEN_API = 'https://oauth2.googleapis.com/token'
-#GOOGLE_API_KEY = 'AIzaSyB5teeR6VKN7T57gVS4HvraO-H0Lo2_8Wg' #애플리케이션에서 이 키를 사용하려면 키를 key=API_KEY 매개변수로 전달하세요.
 GOOGLE_ENDPOINT = 'https://accounts.google.com/o/oauth2/v2/auth' #인증서버
 GOOGLE_SCOPE = 'https://www.googleapis.com/auth/userinfo.email ' + 'https://www.googleapis.com/auth/userinfo.profile ' + 'openid'
 GOOGLE_REDIRECT_URI = 'http://127.0.0.1:8000/oauth/login/google/callback'
+#GOOGLE_API_KEY = 'AIzaSyB5teeR6VKN7T57gVS4HvraO-H0Lo2_8Wg' #애플리케이션에서 이 키를 사용하려면 키를 key=API_KEY 매개변수로 전달하세요.
+
+# cs_web/settings.py
+
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True

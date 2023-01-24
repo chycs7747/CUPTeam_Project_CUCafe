@@ -1,6 +1,7 @@
 #google_api
 from django.shortcuts import render, redirect
 from config import settings
+from django.conf import settings
 
 #import service
 from . import views_service
@@ -44,6 +45,7 @@ class OauthLogin:
             'image': user_data.get('picture', None),
             'path': "google",
         }
+<<<<<<< HEAD
         """
         try:
             user.objects.get(email=profile_data['email'])
@@ -51,6 +53,14 @@ class OauthLogin:
             user.save()
         except:
         """
+=======
+        if user is not None:
+            self.request.session['user_id'] = user_id
+            login(self.request, user)
+            remember_session = self.request.POST.get('remember_session', False)
+            if remember_session:
+                    settings.SESSION_EXPIRE_AT_BROWSER_CLOSE = False
+>>>>>>> 93419ed77242381b2fd5845f73088eba7b550ea2
         
         return redirect('http://127.0.0.1:8000/cafe/board') #board의 네임스페이스를 사용하는 법을 알게 되면 url별칭으로 바꿀 예정이다.
         
