@@ -136,3 +136,7 @@ GOOGLE_ENDPOINT = 'https://accounts.google.com/o/oauth2/v2/auth' #인증서버
 GOOGLE_SCOPE = 'https://www.googleapis.com/auth/userinfo.email ' + 'https://www.googleapis.com/auth/userinfo.profile ' + 'openid'
 GOOGLE_REDIRECT_URI = 'http://127.0.0.1:8000/oauth/login/google/callback'
 #GOOGLE_API_KEY = 'AIzaSyB5teeR6VKN7T57gVS4HvraO-H0Lo2_8Wg' #애플리케이션에서 이 키를 사용하려면 키를 key=API_KEY 매개변수로 전달하세요.
+
+# cs_web/settings.py
+
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
