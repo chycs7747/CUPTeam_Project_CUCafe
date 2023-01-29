@@ -49,7 +49,8 @@ def board_create(request):
 
 def board_create_submit(request):
     if request.method == 'POST':
-        board=Board(name=request.POST.get(['create_content'], None)) #request.POST['create_content'] == request.POST.get(['create_content'], None)
+        #print("Post request: ",request.POST.get('create_content'))
+        board=Board(name=request.POST.get('create_content')) #request.POST['create_content'] == request.POST.get(['create_content'], None)
         board.save()
         return redirect('board:main_index')
 

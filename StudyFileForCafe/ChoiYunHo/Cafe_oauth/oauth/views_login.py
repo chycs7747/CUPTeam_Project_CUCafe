@@ -41,16 +41,16 @@ class OauthLogin:
             'image': user_data.get('picture', None),
             'path': "google",
         }
+        """
         if user is not None:
             self.request.session['user_id'] = user_id
             login(self.request, user)
             remember_session = self.request.POST.get('remember_session', False)
+            print(remember_session)
             if remember_session:
                     settings.SESSION_EXPIRE_AT_BROWSER_CLOSE = False
-        
+        """
         return redirect('http://127.0.0.1:8000/cafe/board') #board의 네임스페이스를 사용하는 법을 알게 되면 url별칭으로 바꿀 예정이다.
         
-
-        
-        
+#103278742394414915071
 
