@@ -1,7 +1,8 @@
 <!DOCTYPE html>
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/login_styles.css' %}">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-<link href="login_styles.css" rel="stylesheet"/>
 <html lang="ko">
   <head>
     <meta charset="UTF-8">  
@@ -12,7 +13,18 @@
         <div class="container-fluid">
             <h1 class="green-text text-center">Yunho Cafe</h1>
       <section>
-        <h2>Yunho Cafe</h2>
+        <h2>구글 로그인하기</h2>
+        <a href="http://127.0.0.1:8000/cafe/login/google">
+          <button>
+              Google로그인
+          </button>
+        </a>
+        <h2>깃허브 로그인하기</h2>
+        <a href="http://127.0.0.1:8000/cafe/login/github">
+          <button>
+              Github로그인
+          </button>
+        </a>
         <!-- TODO: Add link to cat photos -->
         <p>See more <a target="_blank" href="https://freecatphotoapp.com">cat photos</a> in our gallery.</p>
         <a href="https://freecatphotoapp.com"><img src="https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg" alt="A cute orange cat lying on its back."></a>

@@ -7,12 +7,13 @@ import requests #파이썬 모듈 설치 필요 - HTTP 요청을 보낼 때 사�
 from django.core.exceptions import ValidationError
 
 class GithubService:
-    def google_get_access_token(authorization_code):
+    def github_get_access_token(authorization_code):
         '''
         access token을 받는 메소드입니다.\n
         Authorization Code Grant Flow에서는 client_id, client_secret, code, grant_type, redirect url을
         'https://oauth2.googleapis.com/token'의 뒤에 붙여 post방식으로 access token을 받아옵니다.
         '''
+        print("#####code in service: ",authorization_code)
         client_id = settings.GITHUB_CLIENT_ID
         client_secret_password = settings.GITHUB_CLIENT_SECRET_PASSWORD
         redirect_uri = settings.GITHUB_REDIRECT_URI
@@ -24,7 +25,7 @@ class GithubService:
         #추가로 id_token은 ID 토큰은 절대로 API로 보내서는 안 된다. (id_token은 jwt양식)
         #Bearer 토큰은 토큰을 소유한 사람에게 액세스 권한을 부여하는 일반적인 토큰 클래스입니다. 예) 액세스 토큰, ID 토큰
         #expires_in: 만료시간 - Google Access tokens are created by Googles authorization server, Googles access tokens expire after one hour. You do not have access to change this.
-        token_response = requests.post(f'{github_token_api_uri}?client_id={client_id}&client_secret={client_secret_password}&code={authorization_code}&grant_type={grant_type}&redirect_uri={redirect_uri}')
+        token_response = requests.post(f'{github_token_api_uri}?client_id={client_id}&client_secret={client_secret_password}&code={authorization_code}&grant_type={grant_type}&redirect_uri={redirect_uri}', headers={"Accept" : "application/json"})
         print("token response",token_response.json()) #json형식으로 token_response 확인. 이 정보는, 어떤 authorization code를 넣는지(scope가 다른)에 따라 반환하는 양이 다를 수 있다.
         #토큰이 유효하지 않으면 오류 발생(ex) access token's expires 만료)
         if not token_response.ok:
@@ -33,7 +34,7 @@ class GithubService:
         access_token = token_response.json().get('access_token')
         return access_token
     
-    def google_get_user_info(access_token):
+    def github_get_user_info(access_token):
         '''
         Goodle의 user info api를 이용한다.\n
         <참고>\n
