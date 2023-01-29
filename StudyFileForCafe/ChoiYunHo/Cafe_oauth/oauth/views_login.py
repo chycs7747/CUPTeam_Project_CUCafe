@@ -46,6 +46,7 @@ class OauthLogin:
             'path': "google",
         }
 <<<<<<< HEAD
+<<<<<<< HEAD
         """
         try:
             user.objects.get(email=profile_data['email'])
@@ -54,17 +55,23 @@ class OauthLogin:
         except:
         """
 =======
+=======
+        """
+>>>>>>> dccd8d1130ff1401c2eb908305cf739ded025197
         if user is not None:
             self.request.session['user_id'] = user_id
             login(self.request, user)
             remember_session = self.request.POST.get('remember_session', False)
+            print(remember_session)
             if remember_session:
                     settings.SESSION_EXPIRE_AT_BROWSER_CLOSE = False
+<<<<<<< HEAD
 >>>>>>> 93419ed77242381b2fd5845f73088eba7b550ea2
         
+=======
+        """
+>>>>>>> dccd8d1130ff1401c2eb908305cf739ded025197
         return redirect('http://127.0.0.1:8000/cafe/board') #board의 네임스페이스를 사용하는 법을 알게 되면 url별칭으로 바꿀 예정이다.
         
-
-        
-        
+#103278742394414915071
 
