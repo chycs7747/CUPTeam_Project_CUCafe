@@ -70,10 +70,6 @@ TEMPLATES = [
     },
 ]
 
-STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    BASE_DIR / 'static',
-]
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
@@ -126,6 +122,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    BASE_DIR / 'static',
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
@@ -134,17 +133,17 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 #Google Oauth Section
-GOOGLE_CLIENT_ID = '507113890270-ur54u0rit5sff4g4amj5pru6nhdisd68.apps.googleusercontent.com'
-GOOGLE_CLIENT_SECRET_PASSWORD = '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'
+GOOGLE_CLIENT_ID = '887751516891-mmmeu1utsfnhaeg2lgelsfc83s7n2jjc.apps.googleusercontent.com'
+GOOGLE_CLIENT_SECRET_PASSWORD = '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'
 GOOGLE_TOKEN_API = 'https://oauth2.googleapis.com/token'
 GOOGLE_ENDPOINT = 'https://accounts.google.com/o/oauth2/v2/auth' #인증서버
 GOOGLE_SCOPE = 'https://www.googleapis.com/auth/userinfo.email ' + 'https://www.googleapis.com/auth/userinfo.profile ' + 'openid'
-GOOGLE_REDIRECT_URI = 'http://127.0.0.1:8000/oauth/login/google/callback'
+GOOGLE_REDIRECT_URI = 'http://127.0.0.1:8000/cafe/login/google/callback'
 
 #Github Oauth Section
-GITHUB_CLIENT_ID = '4555178b045f20be7b6a'
-GITHUB_CLIENT_SECRET_PASSWORD = '55f354878cfbe2bcfd90071526a8bdb45d7cc023'
+GITHUB_CLIENT_ID = 'c59828e0ab3892454f14'
+GITHUB_CLIENT_SECRET_PASSWORD = '1e7c13eb0b7808b242be5bcb1386a3fdacf457cd'
 GITHUB_TOKEN_API = 'https://github.com/login/oauth/access_token'
 GITHUB_ENDPOINT = 'https://github.com/login/oauth/authorize'
-GITHUB_SCOPE = ''
-GITHUB_REDIRECT_URI = 'http://localhost:8000/oauth/login/github/callback'
+GITHUB_SCOPE = 'repo'
+GITHUB_REDIRECT_URI = 'http://localhost:8000/cafe/login/github/callback'
