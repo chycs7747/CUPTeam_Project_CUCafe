@@ -1,4 +1,5 @@
 #google_api
+import json
 from django.shortcuts import render, redirect
 from config import settings
 from django.conf import settings
@@ -24,9 +25,7 @@ class GithubOauthLogin:
         return redirect(f'{settings.GITHUB_ENDPOINT}?client_id={client_id}&response_type=code&redirect_uri={redirect_uri}&scope={scope}')
 
     def github_callback(request):
-        print("@@@@@@@@@@@@@@@@GOOGLECALLBACK@@@@@@@")
         code = request.GET.get('code') #get authorization_code(Use as approval permissions for resource servers) -> for Authorization Code Grant Flow
-        print("get code: ",code)
         #액세스 토큰은 API에서 읽고 유효성을 검사하기 위한 것
         #하단의 엑세스 토큰을 발급받고,
         access_token = service_views.GithubService.github_get_access_token(code) #code를 이용ㅇ해서 access token을 받아옴 / views_service.py의 class Service 이용

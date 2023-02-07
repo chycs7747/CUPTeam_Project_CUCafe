@@ -13,7 +13,6 @@ class GithubService:
         Authorization Code Grant Flow에서는 client_id, client_secret, code, grant_type, redirect url을
         'https://oauth2.googleapis.com/token'의 뒤에 붙여 post방식으로 access token을 받아옵니다.
         '''
-        print("#####code in service: ",authorization_code)
         client_id = settings.GITHUB_CLIENT_ID
         client_secret_password = settings.GITHUB_CLIENT_SECRET_PASSWORD
         redirect_uri = settings.GITHUB_REDIRECT_URI
